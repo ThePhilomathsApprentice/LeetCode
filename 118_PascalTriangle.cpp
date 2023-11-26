@@ -93,6 +93,11 @@ public:
     {
         std::vector<std::vector<int>> pascalTriangle;
 
+        if (numRows > 31)
+        {
+            std::cout << "WARNING: Please keep numbers <=31.\n";
+        }
+
         for (int i = 0; i < numRows; i++)
         {
             pascalTriangle.push_back(getRow(i));
@@ -108,6 +113,12 @@ int main()
     Solution S1;
     std::vector<std::vector<int>> pascalTriangle = S1.generate(5);
     for (auto elm : pascalTriangle)
+    {
+        std::cout << elm << std::endl;
+    }
+
+    std::vector<std::vector<int>> pascalTriangle1 = S1.generate(32);
+    for (auto elm : pascalTriangle1)
     {
         std::cout << elm << std::endl;
     }
