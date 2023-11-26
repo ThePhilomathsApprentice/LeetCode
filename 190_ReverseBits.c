@@ -1,5 +1,7 @@
 #include <stdio.h>
 #include <stdint.h>
+#include <time.h>
+#include <unistd.h>
 
 uint32_t reverseBits(uint32_t n)
 {
@@ -31,11 +33,37 @@ uint32_t reverseBits_optimised(uint32_t n)
 
 int main()
 {
-    uint32_t x = 0b00000010100101000001111010011100;
-    printf("X=%lu\nreverseX=%lu\n", x, reverseBits_optimised(x));
+    struct timespec begin;
+    struct timespec end;
+
+    uint32_t x1 = 0b00000010100101000001111010011100;
+    clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &begin);
+    uint32_t rev_x1 = reverseBits(x1);
+    clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &end);
+    double time_spent_ns = (end.tv_nsec - begin.tv_nsec);
+
+    printf("X=%lu\nreverseX=%lu (%lf ns)\n\n", x1, rev_x1, time_spent_ns);
 
     uint32_t x2 = 0b11111111111111111111111111111101;
-    printf("X2=%lu\nreverseX2=%lu\n", x2, reverseBits_optimised(x2));
+    clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &begin);
+    uint32_t rev_x2 = reverseBits(x2);
+    clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &end);
+    time_spent_ns = (end.tv_nsec - begin.tv_nsec);
+    printf("X2=%lu\nreverseX2=%lu (%lf ns)\n\n", x2, rev_x2, time_spent_ns);
+
+    uint32_t x3 = 0b00000010100101000001111010011100;
+    clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &begin);
+    uint32_t rev_x3 = reverseBits_optimised(x3);
+    clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &end);
+    time_spent_ns = (end.tv_nsec - begin.tv_nsec);
+    printf("X3=%lu\nreverseX3=%lu (%lf ns)\n\n", x3, rev_x3, time_spent_ns);
+
+    uint32_t x4 = 0b11111111111111111111111111111101;
+    clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &begin);
+    uint32_t rev_x4 = reverseBits_optimised(x4);
+    clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &end);
+    time_spent_ns = (end.tv_nsec - begin.tv_nsec);
+    printf("X4=%lu\nreverseX4=%lu (%lf ns)\n\n", x4, rev_x4, time_spent_ns);
 
     return 0;
 }
