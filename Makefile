@@ -10,6 +10,9 @@
 191: 191_Num1Bit.c
 	gcc 191_Num1Bit.c -o  ./bin/191.out
 	./bin/191.out
+338: 338_CountBits.c
+	gcc 338_CountBits.c -o  ./bin/338.out
+	./bin/338.out
 # 1114: 1114_PrintInOrder.cpp
 # 	g++ 1114_PrintInOrder.cpp -o ./bin/1114.out
 # 	./bin/bin1114.out
