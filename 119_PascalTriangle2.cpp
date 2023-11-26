@@ -34,7 +34,6 @@ Constraints:
 0 <= rowIndex <= 33
 
 */
-
 class Solution
 {
 private:
