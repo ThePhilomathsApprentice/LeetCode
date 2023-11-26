@@ -45,7 +45,7 @@ int main()
 
     printf("X=%lu\nreverseX=%lu (%lf ns)\n\n", x1, rev_x1, time_spent_ns);
 
-    uint32_t x2 = 0b11111111111111111111111111111101;
+    uint32_t x2 = 0b11111111111111111111111111111111;
     clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &begin);
     uint32_t rev_x2 = reverseBits(x2);
     clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &end);
@@ -60,7 +60,7 @@ int main()
     time_spent_ns = (end.tv_nsec - begin.tv_nsec);
     printf("X3=%lu\nreverseX3=%lu (%lf ns)\n\n", x3, rev_x3, time_spent_ns);
 
-    uint32_t x4 = 0b11111111111111111111111111111101;
+    uint32_t x4 = 0b11111111111111111111111111111111;
     clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &begin);
     uint32_t rev_x4 = reverseBits_optimised(x4);
     clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &end);

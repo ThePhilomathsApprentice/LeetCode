@@ -82,6 +82,11 @@ public:
     {
         std::vector<int> pascalIntRow;
 
+        if (rowIndex > 31)
+        {
+            std::cout << "WARNING: Please keep numbers <=31.\n";
+        }
+
         for (int i = 0; i <= rowIndex; i++)
         {
             pascalIntRow.push_back(round(nCk(rowIndex, i)));
@@ -95,6 +100,9 @@ int main()
 {
     Solution S1;
     std::vector<int> pascalTriangle2 = S1.getRow(5);
+    std::cout << pascalTriangle2 << std::endl;
+
+    pascalTriangle2 = S1.getRow(32);
     std::cout << pascalTriangle2 << std::endl;
 
     return 0;

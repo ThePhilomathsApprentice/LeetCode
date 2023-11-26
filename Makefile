@@ -7,6 +7,9 @@
 190: 190_ReverseBits.c
 	gcc 190_ReverseBits.c -o  ./bin/190.out
 	./bin/190.out
+191: 191_Num1Bit.c
+	gcc 191_Num1Bit.c -o  ./bin/191.out
+	./bin/191.out
 # 1114: 1114_PrintInOrder.cpp
 # 	g++ 1114_PrintInOrder.cpp -o ./bin/1114.out
 # 	./bin/bin1114.out
