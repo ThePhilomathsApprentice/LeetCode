@@ -1,3 +1,22 @@
+#include <iostream>
+#include <map>
+#include <vector>
+#include <cmath>
+#include <stdexcept>
+
+template <typename S>
+std::ostream &operator<<(std::ostream &os,
+                         const std::vector<S> &vector)
+{
+    // Printing all the elements
+    // using <<
+    for (auto element : vector)
+    {
+        os << element << " ";
+    }
+    return os;
+}
+
 /*
 Given an integer rowIndex, return the rowIndexth (0-indexed) row of the Pascal's triangle.
 
@@ -16,54 +35,68 @@ Constraints:
 
 */
 
-class Solution {
+class Solution
+{
 private:
-    std::map<int,double> factorialMap;
+    std::map<int, double> factorialMap;
 
-    double fact(int f){
+    double fact(int f)
+    {
         double factorial = 1;
-        if(f<=1){
+        if (f <= 1)
+        {
             return (factorial);
-            
-        }else{
-            try{
+        }
+        else
+        {
+            try
+            {
                 factorial = factorialMap.at(f);
-                
-            }catch(const out_of_range& oor){
-                for( int i=1 ; i<=f ; i++ ){
+            }
+            catch (const std::out_of_range &oor)
+            {
+                for (int i = 1; i <= f; i++)
+                {
 
                     factorial *= i;
-
                 }
-                
-                factorialMap.insert(std::pair<int,double>(f,factorial));
-                
-            }            
-            
+
+                factorialMap.insert(std::pair<int, double>(f, factorial));
+            }
+
             return (factorial);
         }
-        
-        return (factorial);
-        
-    }
-    
-    double nCk(int n, int k){
 
-        double result = ( ( fact(n) / fact(n-k) ) / (fact(k) )  );
-        
-        return result;
-        
+        return (factorial);
     }
-    
+
+    double nCk(int n, int k)
+    {
+
+        double result = ((fact(n) / fact(n - k)) / (fact(k)));
+
+        return result;
+    }
+
 public:
-    vector<int> getRow(int rowIndex) {
-        vector<int> pascalIntRow;
-        
-        for( int i=0 ; i<=rowIndex ; i++ ){
-            pascalIntRow.push_back(round(nCk(rowIndex,i)));
-            
+    std::vector<int> getRow(int rowIndex)
+    {
+        std::vector<int> pascalIntRow;
+
+        for (int i = 0; i <= rowIndex; i++)
+        {
+            pascalIntRow.push_back(round(nCk(rowIndex, i)));
         }
-        
+
         return pascalIntRow;
     }
 };
+
+int main()
+{
+    Solution S1;
+    std::vector<int> pascalTriangle2 = S1.getRow(5);
+    std::cout << pascalTriangle2 << std::endl;
+
+    return 0;
+}

@@ -36,6 +36,7 @@ int main()
     struct timespec begin;
     struct timespec end;
 
+    printf("UnOptimised:\n");
     uint32_t x1 = 0b00000010100101000001111010011100;
     clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &begin);
     uint32_t rev_x1 = reverseBits(x1);
@@ -51,6 +52,7 @@ int main()
     time_spent_ns = (end.tv_nsec - begin.tv_nsec);
     printf("X2=%lu\nreverseX2=%lu (%lf ns)\n\n", x2, rev_x2, time_spent_ns);
 
+    printf("Optimised:\n");
     uint32_t x3 = 0b00000010100101000001111010011100;
     clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &begin);
     uint32_t rev_x3 = reverseBits_optimised(x3);
