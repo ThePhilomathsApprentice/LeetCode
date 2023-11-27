@@ -18,7 +18,14 @@ int *countBits(int n, int *returnSize)
 
     for (int i = 1; i <= n; i++)
     {
-        array[i] = array[i >> 1] + (i & 1);
+        if (i % 2 == 0)
+        {
+            array[i] = array[i >> 1];
+        }
+        else
+        {
+            array[i] = array[i >> 1] + 1;
+        }
     }
 
     return array;
