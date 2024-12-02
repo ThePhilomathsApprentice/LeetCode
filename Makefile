@@ -27,13 +27,17 @@
 # 	g++ 1114_PrintInOrder.cpp -o ./bin/1114.out
 # 	./bin/bin1114.out
 
+1346: 1346_CheckNOrDoubleExit.cpp printVector.cpp
+	g++ -std=c++20 1346_CheckNOrDoubleExit.cpp printVector.cpp -o  ./bin/1346.out
+	./bin/1346.out
+
 2220: 2220_MinFlipsToConvert.c
 	gcc 2220_MinFlipsToConvert.c -o  ./bin/2220.out
 	./bin/2220.out
 
 2239: 2239_ClosestNumberToZero.cpp printVector.cpp
-	g++ 2239_ClosestNumberToZero.cpp printVector.cpp -o  ./bin/2220.out
-	./bin/2220.out
+	g++ 2239_ClosestNumberToZero.cpp printVector.cpp -o  ./bin/2239.out
+	./bin/2239.out
 
 clean:
 	rm -rf ./bin/*.out
