@@ -8,7 +8,6 @@ uint32_t reverseBits(uint32_t n)
     uint32_t reverse_n = 0;
     for (int i = 0; i < 32; i++)
     {
-
         reverse_n <<= 1;
 
         if ((n & 1) == 1)
@@ -43,14 +42,14 @@ int main()
     clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &end);
     double time_spent_ns = (end.tv_nsec - begin.tv_nsec);
 
-    printf("X=%lu\nreverseX=%lu (%lf ns)\n\n", x1, rev_x1, time_spent_ns);
+    printf("X=%u\nreverseX=%u (%lf ns)\n\n", x1, rev_x1, time_spent_ns);
 
     uint32_t x2 = 0b11111111111111111111111111111111;
     clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &begin);
     uint32_t rev_x2 = reverseBits(x2);
     clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &end);
     time_spent_ns = (end.tv_nsec - begin.tv_nsec);
-    printf("X2=%lu\nreverseX2=%lu (%lf ns)\n\n", x2, rev_x2, time_spent_ns);
+    printf("X2=%u\nreverseX2=%u (%lf ns)\n\n", x2, rev_x2, time_spent_ns);
 
     printf("Optimised:\n");
     uint32_t x3 = 0b00000010100101000001111010011100;
@@ -58,14 +57,14 @@ int main()
     uint32_t rev_x3 = reverseBits_optimised(x3);
     clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &end);
     time_spent_ns = (end.tv_nsec - begin.tv_nsec);
-    printf("X3=%lu\nreverseX3=%lu (%lf ns)\n\n", x3, rev_x3, time_spent_ns);
+    printf("X3=%u\nreverseX3=%u (%lf ns)\n\n", x3, rev_x3, time_spent_ns);
 
     uint32_t x4 = 0b11111111111111111111111111111111;
     clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &begin);
     uint32_t rev_x4 = reverseBits_optimised(x4);
     clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &end);
     time_spent_ns = (end.tv_nsec - begin.tv_nsec);
-    printf("X4=%lu\nreverseX4=%lu (%lf ns)\n\n", x4, rev_x4, time_spent_ns);
+    printf("X4=%u\nreverseX4=%u (%lf ns)\n\n", x4, rev_x4, time_spent_ns);
 
     return 0;
 }

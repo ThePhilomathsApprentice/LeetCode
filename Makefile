@@ -1,3 +1,11 @@
+1: 1_TwoSum.cpp
+	g++ -std=c++20 1_TwoSum.cpp -o ./bin/1.out
+	./bin/1.out
+
+88: 88_MergedSort.cpp printVector.cpp
+	g++ -std=c++20 88_MergedSort.cpp printVector.cpp -o ./bin/88.out
+	./bin/88.out
+
 118: 118_PascalTriangle.cpp
 	g++ 118_PascalTriangle.cpp -o ./bin/118.out
 	./bin/118.out
@@ -21,6 +29,10 @@
 
 2220: 2220_MinFlipsToConvert.c
 	gcc 2220_MinFlipsToConvert.c -o  ./bin/2220.out
+	./bin/2220.out
+
+2239: 2239_ClosestNumberToZero.cpp printVector.cpp
+	g++ 2239_ClosestNumberToZero.cpp printVector.cpp -o  ./bin/2220.out
 	./bin/2220.out
 
 clean:
