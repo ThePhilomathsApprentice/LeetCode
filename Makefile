@@ -39,5 +39,9 @@
 	g++ 2239_ClosestNumberToZero.cpp printVector.cpp -o  ./bin/2239.out
 	./bin/2239.out
 
+memcpy: my_memcpy.c
+	gcc my_memcpy.c -o ./bin/memcpy.out
+	./bin/memcpy.out
+
 clean:
 	rm -rf ./bin/*.out
